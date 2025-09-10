@@ -10,3 +10,11 @@ using namespace std;
 
 //=========================================================
 //Constructor section
+
+Pokemon_Vector::~Pokemon_Vector(){}
+
+Pokemon get_PokemonById(int id) {
+    Pokemon.getId();
+    get_Id
+}
+void get_PokemonByName(string name);

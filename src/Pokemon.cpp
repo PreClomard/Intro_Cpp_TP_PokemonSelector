@@ -26,7 +26,6 @@ defensePoints(defensePoints){
 
 //Destructor
 Pokemon::~Pokemon() {
-    cout<<"Destruction Classe Pokemon"<<endl;
 }
 
 
@@ -37,7 +36,6 @@ Pokemon::~Pokemon() {
  *  Use: Show the specificity of the pokemon
  ***/
 void Pokemon::displayInfo() const{
-    cout<<"Ici le constructeur de Pokemon"<<endl;
     cout<<"Id: "<<id<<endl;
     cout<<"Nom: "<<name<<endl;
     cout<<"Evolution: "<<evolution<<endl;

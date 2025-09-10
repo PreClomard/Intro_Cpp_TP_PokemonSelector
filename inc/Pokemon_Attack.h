@@ -4,9 +4,9 @@
 
 #ifndef POKEMON_SELECTOR_POKEMON_ATTACK_H
 #define POKEMON_SELECTOR_POKEMON_ATTACK_H
+#include "Pokemon_Vector.h"
 
-
-class Pokemon_Attack {
+class Pokemon_Attack:private Pokemon_Vector {
 };
 
 

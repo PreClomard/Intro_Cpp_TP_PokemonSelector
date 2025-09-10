@@ -5,8 +5,9 @@
 #ifndef POKEMON_SELECTOR_POKEDEX_H
 #define POKEMON_SELECTOR_POKEDEX_H
 
+#include "Pokemon_Vector.h"
 
-class Pokedex {
+class Pokedex:private Pokemon_Vector{
 };
 
 

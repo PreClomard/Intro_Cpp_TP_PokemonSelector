@@ -9,16 +9,22 @@
 #include <string>
 #include <vector>
 
+#include "Pokemon.h"
 
 using namespace std;
 
 class Pokemon_Vector {
-
+private:
+    vector<Pokemon> pokemonList;
 public:
     //Constructor
     Pokemon_Vector()=delete;
     //Destructor
     virtual ~Pokemon_Vector();
+
+    //Methode
+    Pokemon get_PokemonById(int id);
+    Pokemon get_PokemonByName(string name);
 };
 
 #endif //POKEMON_SELECTOR_POKEMON_VECTOR_H

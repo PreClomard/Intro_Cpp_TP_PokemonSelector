@@ -4,9 +4,10 @@
 
 #ifndef POKEMON_SELECTOR_POKEMON_PARTY_H
 #define POKEMON_SELECTOR_POKEMON_PARTY_H
+#include "Pokemon_Vector.h"
 
 
-class Pokemon_Party {
+class Pokemon_Party:private Pokemon_Vector {
 };
 
 
