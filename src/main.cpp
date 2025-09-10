@@ -11,8 +11,8 @@ int main()
     Pokemon bulbizare(2, "bulbizare",2, 15, 15, 4, 6);
 
     dracofeu.displayInfo();
-    bulbizare.versus(dracofeu.get_attack(),bulbizare.get_defense(),bulbizare.get_lifePoints());
-    dracofeu.versus(bulbizare.get_attack(),dracofeu.get_defense(),dracofeu.get_lifePoints());
+    bulbizare.versus(dracofeu.get_attack());
+    dracofeu.versus(bulbizare.get_attack());
     dracofeu.displayInfo();
     return 0;
 }

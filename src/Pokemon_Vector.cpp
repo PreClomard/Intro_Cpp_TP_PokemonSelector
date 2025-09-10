@@ -7,7 +7,6 @@
 #include <string>
 using namespace std;
 
-#include "../inc/Pokemon.h"
 
 //=========================================================
 //Constructor section

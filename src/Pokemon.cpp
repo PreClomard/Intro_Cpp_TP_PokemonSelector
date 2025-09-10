@@ -50,24 +50,25 @@ void Pokemon::displayInfo() const{
 /**
  *  Name: Versus
  *  Use: Simulate the attack of a pokemon A on a pokemon B
- *  Variable: att -> Pokemon A attack ; def -> Pokemon B defense ; lifePoint-> Pokemon B lifePoint
+ *  Variable: def -> Pokemon B defense ; lifePoint-> Pokemon B lifePoint
  ****/
-double Pokemon::versus(double attackingPokemon_Attack,
-        double defendingPokemon_Defense, double defendingPokemon_LifePoint){
-    if (attackingPokemon_Attack>defendingPokemon_Defense) {
-        this-> lifePoints =defendingPokemon_LifePoint + (defendingPokemon_Defense-attackingPokemon_Attack);
-        cout<<"**********************************" <<endl;
-        cout<<"Le pokemon est KO"<<endl;
-        if (defendingPokemon_LifePoint<=0) {
+void Pokemon::versus(double attackingPokemon_Attack){
+    if (attackingPokemon_Attack>defensePoints) {
+        this-> lifePoints =lifePoints + (defensePoints-attackingPokemon_Attack);
+
+        if (defensePoints<=0) {
             cout<<"**********************************" <<endl;
-            cout<<"Le pokemon "<<name<<" est a "<<defendingPokemon_LifePoint<<"point de vie"<<endl;
+            cout<<"Le pokemon est KO"<<endl;
+            }
+        else {
+            cout<<"**********************************" <<endl;
+            cout<<"Le pokemon "<<name<<" est a "<<lifePoints<<" point de vie"<<endl;
         }
     }
     else {
         cout<<"**********************************" <<endl;
         cout<<"Le pokemon "<<name<<" a une défense solide"<<endl;
     }
-    return defendingPokemon_LifePoint;
 }
 
 //=========================================================
