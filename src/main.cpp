@@ -1,5 +1,6 @@
 #include <iostream>
 #include "../inc/Pokemon.h"
+#include "../inc/Pokemon_Vector.h"
 
 using namespace std;
 
@@ -14,5 +15,9 @@ int main()
     bulbizare.versus(dracofeu.get_attack());
     dracofeu.versus(bulbizare.get_attack());
     dracofeu.displayInfo();
+
+    std::cout<<"========================"<<std::endl;
+    Pokemon_Vector myList;
+
     return 0;
 }

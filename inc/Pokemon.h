@@ -32,13 +32,13 @@ public:
     void versus(double attackingPokemon_Attack);
 
     //Getter
-    int get_id();
-    string get_name();
-    double get_lifePoints();
-    double get_maxLifePoints();
-    double get_attack();
-    double get_defense();
-    int get_evolution();
+    int get_id() const;
+    string get_name() const;
+    double get_lifePoints() const;
+    double get_maxLifePoints() const;
+    double get_attack() const;
+    double get_defense() const;
+    int get_evolution() const;
 };
 
 #endif //POKEMON_SELECTOR_POKEMON_H

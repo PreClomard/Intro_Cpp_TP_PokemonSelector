@@ -71,26 +71,26 @@ void Pokemon::versus(double attackingPokemon_Attack){
 
 //=========================================================
 //Getter section
-int Pokemon::get_id(){
+int Pokemon::get_id() const{
     return id;
 }
 
-string Pokemon::get_name(){
+string Pokemon::get_name() const{
     return name;
 }
 
-double Pokemon::get_lifePoints() {
+double Pokemon::get_lifePoints() const{
     return lifePoints;
 }
-double Pokemon::get_maxLifePoints() {
+double Pokemon::get_maxLifePoints() const{
     return lifePoints;
 }
-double Pokemon::get_attack() {
+double Pokemon::get_attack() const{
     return attackPoints;
 }
-double Pokemon::get_defense() {
+double Pokemon::get_defense() const{
     return defensePoints;
 }
-int Pokemon::get_evolution(){
+int Pokemon::get_evolution() const{
     return evolution;
 }

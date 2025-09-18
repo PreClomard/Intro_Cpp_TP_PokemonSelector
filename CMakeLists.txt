@@ -10,10 +10,10 @@ add_executable(Pokemon_Selector src/main.cpp
         src/Pokemon_Vector.cpp
         src/Pokedex.cpp
         inc/Pokedex.h
+        src/Pokemon_PC.cpp
+        inc/Pokemon_PC.h
         src/Pokemon_Party.cpp
-        inc/Pokemon_Party.h
-        src/Pokemon_Attack.cpp
-        inc/Pokemon_Attack.h)
+        inc/Pokemon_Party.h)
 
 target_link_libraries(Pokemon_Selector
         sfml-graphics

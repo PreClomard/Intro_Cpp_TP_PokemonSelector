@@ -13,8 +13,34 @@ using namespace std;
 
 Pokemon_Vector::~Pokemon_Vector(){}
 
-Pokemon get_PokemonById(int id) {
-    Pokemon.getId();
-    get_Id
+Pokemon* Pokemon_Vector::get_PokemonById(int id) {
+    for (Pokemon* p : pokemonList) {
+        if (p->get_id()==id) {
+            return p;
+        }
+    }
+    return nullptr;
 }
-void get_PokemonByName(string name);
+Pokemon* Pokemon_Vector::get_PokemonByName(const string name) {
+    for (Pokemon* p : pokemonList) {
+        if (p->get_name()==name) {
+            return p;
+        }
+    }
+    return nullptr;
+}
+
+void Pokemon_Vector::update_Liste(const Pokemon &p) {
+    pokemonList.push_back(new Pokemon(p));
+}
+
+void Pokemon_Vector::display_PokemonList() {
+    for (Pokemon* p : pokemonList) {
+        p->displayInfo();
+    }
+}
+
+
+
+
+
