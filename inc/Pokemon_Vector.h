@@ -14,21 +14,20 @@
 using namespace std;
 
 class Pokemon_Vector {
-private:
-    vector<Pokemon*> pokemonList;
+protected:
+    vector<Pokemon> pokemonList;
 
 public:
     //Constructor
-    Pokemon_Vector()=delete;
+    Pokemon_Vector();
     //Destructor
     virtual ~Pokemon_Vector();
 
     //Get
-    Pokemon* get_PokemonById(int id) ;
-    Pokemon* get_PokemonByName(string name);
+    Pokemon& get_PokemonById(int id) ;
+    Pokemon& get_PokemonByName(string name);
 
     //Methode
-    void update_Liste(const Pokemon& p);
     void display_PokemonList();
 };
 

@@ -11,18 +11,10 @@ using namespace std;
 //Constructor section
 
 //Constructor
-Pokemon::Pokemon(int id, const string &name,int evolution, double maxLifePoints,
-        double lifePoints, double attackPoints, double defensePoints):id(id),name(name),
+Pokemon::Pokemon(int id, const string name,int generation, double maxLifePoints,
+        double lifePoints, double attackPoints, double defensePoints):id(id),name(name),generation(generation),
 maxLifePoints(maxLifePoints),lifePoints(lifePoints),attackPoints(attackPoints),
-defensePoints(defensePoints){
-    this->id = id;
-    this->name = name;
-    this->evolution = evolution;
-    this->maxLifePoints = maxLifePoints;
-    this->lifePoints = lifePoints;
-    this->attackPoints = attackPoints;
-    this->defensePoints = defensePoints;
-}
+defensePoints(defensePoints){}
 
 //Destructor
 Pokemon::~Pokemon() {
@@ -38,7 +30,7 @@ Pokemon::~Pokemon() {
 void Pokemon::displayInfo() const{
     cout<<"Id: "<<id<<endl;
     cout<<"Nom: "<<name<<endl;
-    cout<<"Evolution: "<<evolution<<endl;
+    cout<<"Generation: "<<generation<<endl;
     cout<<"Point de vie: "<<lifePoints<<endl;
     cout<<"Point de vie max: "<<maxLifePoints<<endl;
     cout<<"Attack: "<<attackPoints<<endl;
@@ -95,6 +87,6 @@ double Pokemon::get_attack() const{
 double Pokemon::get_defense() const{
     return defensePoints;
 }
-int Pokemon::get_evolution() const{
-    return evolution;
+int Pokemon::get_generation() const{
+    return generation;
 }

@@ -2,12 +2,17 @@
 
 ## TP du 10 Septembre
 
-###  Anvancé 
+###  Avancé en TP
 La création de la classe Pokemon a été fait.
 La classe Pokemon Vector est en cours de realisation.
 Les fichiers des autres classes ont été créer mais sont 
 vides pour l'instant.
 
+###  Avancé en dehors du TP
+La classe Pokemon a été mis à jour avec l'amélioration de
+la méthode versu. De plus la class Pokemon_Vector a été mis
+en place ne laissant normalement que les classes filles à 
+faire.
 
 
 

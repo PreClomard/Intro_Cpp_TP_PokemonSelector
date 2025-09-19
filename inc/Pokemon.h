@@ -14,7 +14,7 @@ private:
     //Attribut
     int id;
     string name;
-    int evolution;
+    int generation;
     double maxLifePoints;
     double lifePoints;
     double attackPoints;
@@ -22,7 +22,7 @@ private:
 
 public:
     //Constructor
-    Pokemon(int id, const string &name,int evolution, double maxLifePoints,
+    Pokemon(int id, const string name,int generation, double maxLifePoints,
         double lifePoints, double attackPoints, double defensePoints);
     //Destructor
     ~Pokemon();
@@ -38,7 +38,7 @@ public:
     double get_maxLifePoints() const;
     double get_attack() const;
     double get_defense() const;
-    int get_evolution() const;
+    int get_generation() const;
 };
 
 #endif //POKEMON_SELECTOR_POKEMON_H
