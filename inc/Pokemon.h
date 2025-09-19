@@ -29,7 +29,7 @@ public:
 
     //Methode
     void displayInfo() const;
-    void versus(double attackingPokemon_Attack);
+    void versus(Pokemon &anotherPokemon);
 
     //Getter
     int get_id() const;

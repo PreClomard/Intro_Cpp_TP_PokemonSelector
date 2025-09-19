@@ -12,12 +12,12 @@ int main()
     Pokemon bulbizare(2, "bulbizare",2, 15, 15, 4, 6);
 
     dracofeu.displayInfo();
-    bulbizare.versus(dracofeu.get_attack());
-    dracofeu.versus(bulbizare.get_attack());
+    bulbizare.versus(dracofeu);
+    dracofeu.versus(bulbizare);
     dracofeu.displayInfo();
 
     std::cout<<"========================"<<std::endl;
-    Pokemon_Vector myList;
+
 
     return 0;
 }
