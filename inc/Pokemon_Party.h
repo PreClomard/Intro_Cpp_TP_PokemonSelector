@@ -6,7 +6,7 @@
 #define POKEMON_SELECTOR_POKEMON_ATTACK_H
 #include "Pokemon_Vector.h"
 
-class Pokemon_Party:private Pokemon_Vector {
+class Pokemon_Party:public Pokemon_Vector {
 };
 
 

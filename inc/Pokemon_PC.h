@@ -5,10 +5,24 @@
 #ifndef POKEMON_SELECTOR_POKEMON_PARTY_H
 #define POKEMON_SELECTOR_POKEMON_PARTY_H
 #include "Pokemon_Vector.h"
+#include "Pokedex.h"
+
+class Pokemon_PC:public Pokemon_Vector {
+    Pokedex* pokedex;
+
+public:
+    Pokemon_PC(Pokedex* pokedex);
+    ~Pokemon_PC();
 
 
-class Pokemon_PC:private Pokemon_Vector {
+    void addPokemonToPCbyId(int id);
+    void addPokemonToPCbyName(string name);
+    void removePokemonToPCbyId(int id);
+    void removePokemonToPCbyName(string name);
+
+
 };
+
 
 
 #endif //POKEMON_SELECTOR_POKEMON_PARTY_H
