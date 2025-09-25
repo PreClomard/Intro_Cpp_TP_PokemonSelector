@@ -1,0 +1,4 @@
+"C:\Program Files\JetBrains\CLion 2025.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S C:\Users\guilh\CLionProjects\Intro_Cpp_TP_PokemonSelector-main\Intro_Cpp_TP_PokemonSelector-main -B C:\Users\guilh\CLionProjects\Intro_Cpp_TP_PokemonSelector-main\Intro_Cpp_TP_PokemonSelector-main\cmake-build-debug
+-- Configuring done (0.5s)
+-- Generating done (0.1s)
+-- Build files have been written to: C:/Users/guilh/CLionProjects/Intro_Cpp_TP_PokemonSelector-main/Intro_Cpp_TP_PokemonSelector-main/cmake-build-debug
