@@ -35,6 +35,7 @@ void Pokemon::displayInfo() const{
     cout<<"Point de vie max: "<<maxLifePoints<<endl;
     cout<<"Attack: "<<attackPoints<<endl;
     cout<<"Defense: "<<defensePoints<<endl;
+    cout<<""<<endl;
 }
 
 /**

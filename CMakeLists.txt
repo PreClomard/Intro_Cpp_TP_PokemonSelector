@@ -13,7 +13,22 @@ add_executable(Pokemon_Selector src/main.cpp
         src/Pokemon_PC.cpp
         inc/Pokemon_PC.h
         src/Pokemon_Party.cpp
-        inc/Pokemon_Party.h)
+        inc/Pokemon_Party.h
+        src/Game.cpp
+        inc/Game.h
+        inc/State.h
+        src/MenuState.cpp
+        inc/MenuState.h
+        src/ExplorationState.cpp
+        inc/ExplorationState.h
+        src/EncounterState.cpp
+        inc/EncounterState.h
+        src/ArenaState.cpp
+        inc/ArenaState.h
+        src/GameOverState.cpp
+        inc/GameOverState.h
+        src/State.cpp
+)
 
 target_link_libraries(Pokemon_Selector
         sfml-graphics
