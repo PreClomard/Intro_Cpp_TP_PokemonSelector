@@ -1,18 +1,26 @@
 #include <iostream>
-#include "../inc/Pokemon.h"
-#include "../inc/Pokemon_Vector.h"
-#include "../inc/Pokedex.h"
-#include "../inc/Pokemon_PC.h"
-#include "../inc/Pokemon_Party.h"
+#include "../inc/Pokemon_Classes/Pokemon.h"
+#include "../inc/Pokemon_Classes/Pokemon_Vector.h"
+#include "../inc/Pokemon_Classes/Pokedex.h"
+#include "../inc/Pokemon_Classes/Pokemon_PC.h"
+#include "../inc/Pokemon_Classes/Pokemon_Party.h"
 #include "../inc/Game.h"
-#include "../inc/MenuState.h"
+#include "../inc/State/MenuState.h"
 
 using namespace std;
 
+void test_before_state();
+void test_after_state();
 
 int main()
 {
-    std::cout<<"************ Pokemon Test ************" <<std::endl;
+	//test_before_state();
+	test_after_state();
+	return 0;
+}
+
+void test_before_state() {
+	std::cout<<"************ Pokemon Test ************" <<std::endl;
     /*Pokemon dracofeu(1, "dracofeu", 2, 10, 10, 5,3);
     Pokemon bulbizare(2, "bulbizare",2, 15, 15, 4, 6);
 
@@ -62,10 +70,10 @@ int main()
 	pokemon_team->display_PokemonList();
 	std::cout<<"-----Pokemon PC"<<std::endl;
 	pokemon_pc->display_PokemonList();
+}
 
+void test_after_state() {
 	std::cout<<"=========Creation State Pattern=========="<<std::endl;
-	Game *game=new Game(new MenuState());
-	game->update();
-
-	return 0;
+	Game *game=new Game();
+	game->run();
 }

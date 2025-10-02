@@ -4,21 +4,24 @@
 
 #ifndef POKEMON_SELECTOR_GAME_H
 #define POKEMON_SELECTOR_GAME_H
-#include "State.h"
+#include <SFML/Graphics/RenderWindow.hpp>
 
-
+#include "State/State.h"
+#include "State/MenuState.h"
+#include "Pokemon_Classes/Pokemon_Party.h"
 class Game {
 private:
     State *stateOfTheClass;
+    sf::RenderWindow window;
 
 public:
-    Game(State *state);
+    Game();
     ~Game();
 
 
-    void set_State(State *state);
     void run();
-    void update();
+    void setState(State *state);
+    void setTeam();
 
 };
 
