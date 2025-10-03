@@ -6,7 +6,8 @@
 #define POKEMON_SELECTOR_STATE_H
 
 #include <SFML/Graphics.hpp>
-
+#include "../Pokemon_Classes/Pokemon_Vector.h"
+#include "../Pokemon_Classes/Pokemon_Party.h"
 class Game;
 
 class State {

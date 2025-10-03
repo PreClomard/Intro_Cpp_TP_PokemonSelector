@@ -19,11 +19,14 @@ private:
     double lifePoints;
     double attackPoints;
     double defensePoints;
+    string imagePath;
 
 public:
     //Constructor
     Pokemon(int id, const string name,int generation, double maxLifePoints,
-        double lifePoints, double attackPoints, double defensePoints);
+        double lifePoints, double attackPoints, double defensePoints,
+        string imagePath);
+
     //Destructor
     ~Pokemon();
 
@@ -39,6 +42,7 @@ public:
     double get_attack() const;
     double get_defense() const;
     int get_generation() const;
+    string get_imagePath() const;
 };
 
 #endif //POKEMON_SELECTOR_POKEMON_H

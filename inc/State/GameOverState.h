@@ -8,6 +8,15 @@
 
 
 class GameOverState : public State {
+private:
+    sf::Texture backgroundTexture;
+    sf::Sprite background;
+
+public:
+    GameOverState(Game* game);
+    void handleGameEvent(sf::Event &event) override;
+    void update() override;
+    void render(sf::RenderWindow &window) override;
 };
 
 

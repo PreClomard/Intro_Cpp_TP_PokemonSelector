@@ -1,15 +1,128 @@
 @startuml
-'https://plantuml.com/sequence-diagram
+' ====== CORE POKEMON CLASSES ======
+class Pokemon {
+    - id : int
+    - name : string
+    - generation : int
+    - maxLifePoints : double
+    - lifePoints : double
+    - attackPoints : double
+    - defensePoints : double
+    + Pokemon(id, name, generation, maxLifePoints, lifePoints, attackPoints, defensePoints)
+    + ~Pokemon()
+    + displayInfo()
+    + versus(Pokemon)
+    + get_id() : int
+    + get_name() : string
+    + get_lifePoints() : double
+    + get_maxLifePoints() : double
+    + get_attack() : double
+    + get_defense() : double
+    + get_generation() : int
+}
 
-autonumber
+class Pokemon_Vector {
+    # pokemonList : List<Pokemon>
+    + Pokemon_Vector()
+    + ~Pokemon_Vector()
+    + get_PokemonById(id) : Pokemon
+    + get_PokemonByName(name) : Pokemon
+    + display_PokemonList()
+    + listOfId() : List<int>
+}
 
-== Initialization ==
+class Pokedex {
+    - pinstance : Pokedex
+    - Pokedex()
+    + getInstance() : Pokedex
+}
 
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
+class Pokemon_PC {
+    - pokedex : Pokedex
+    + Pokemon_PC(pokedex)
+    + ~Pokemon_PC()
+    + addPokemonToPCbyId(id)
+    + addPokemonToPCbyName(name)
+    + removePokemonToPCbyId(id)
+    + removePokemonToPCbyName(name)
+}
 
-== Repetition ==
+class Pokemon_Party {
+    - pokemon_collection : Pokemon_PC
+    + Pokemon_Party(pokemon_pc)
+    + ~Pokemon_Party()
+    + addPokemonToPartyById(id)
+    + addPokemonToPartyByName(name)
+    + removePokemonToPartyById(id)
+    + removePokemonToPartyByName(name)
+}
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+Pokemon_Vector *-- Pokemon
+Pokemon_Vector <|-- Pokedex
+Pokemon_Vector <|-- Pokemon_PC
+Pokemon_Vector <|-- Pokemon_Party
+Pokemon_PC --> Pokedex
+Pokemon_Party --> Pokemon_PC
+
+' ====== GAME STATE SYSTEM ======
+class Game {
+    - stateOfTheClass : State
+    - window
+    + Game()
+    + ~Game()
+    + run()
+    + setState(state)
+    + setTeam()
+}
+
+class State {
+    # game : Game
+    + ~State()
+    + set_Game(game)
+    + handleGameEvent(event)
+    + update()
+    + render(window)
+}
+
+class MenuState {
+    - trainerTeam : Pokemon_Party
+    + MenuState(game)
+    + handleGameEvent(event)
+    + update()
+    + render(window)
+    + creationOfParty()
+}
+
+class ExplorationState {
+    - randomEncounter : int
+    - randomArena : int
+    + ExplorationState(game)
+    + handleGameEvent(event)
+    + update()
+    + render(window)
+}
+
+class ArenaState
+class GameOverState
+
+State <|-- MenuState
+State <|-- ExplorationState
+State <|-- ArenaState
+State <|-- GameOverState
+Game --> State
+MenuState --> Pokemon_Party
+
+' ====== DYNAMIC SPRITE ======
+class DynamicSprite {
+    - isWalking : bool
+    - speed : double
+    - spriteSheetNumberOfColumn : int
+    - timeBetweenFrame : double
+    + DynamicSprite()
+    + ~DynamicSprite()
+    + draw()
+    + setDirection()
+    - isMovingPossible()
+    - move()
+}
 @enduml

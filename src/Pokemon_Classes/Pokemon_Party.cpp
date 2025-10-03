@@ -8,16 +8,29 @@ Pokemon_Party::Pokemon_Party(Pokemon_PC* pokemon_collection):pokemon_collection(
 Pokemon_Party::~Pokemon_Party(){}
 
 void Pokemon_Party::addPokemonToPartyById(int id){
-    Pokemon& pokemon = pokemon_collection->get_PokemonById(id);
+    /*Pokemon& pokemon = pokemon_collection->get_PokemonById(id);
 	if(&pokemon!=NULL){
-	    if (pokemonList.size()<7) {
+	    if (pokemonList.size()<6) {
 	        pokemonList.push_back(pokemon);
 	        pokemon_collection->removePokemonToPCbyId(id);
 	    }
 	    else std::cout<<"Your party is full"<<std::endl;
     }
     else std::cout<<"No pokemon found"<<std::endl;
+    */
+    Pokemon* p = &(pokemon_collection->get_PokemonById(id));
+    if (p == nullptr) {
+        std::cout << "No pokemon found" << std::endl;
+        return;
+    }
 
+    if (pokemonList.size() < 6) {
+        pokemonList.push_back(*p);
+        pokemon_collection->removePokemonToPCbyId(id);
+        std::cout << "Pokemon add to your party : "<<id << std::endl;
+    } else {
+        std::cout << "Your party is full" << std::endl;
+    }
 }
 void Pokemon_Party::addPokemonToPartyByName(string name){
     Pokemon& pokemon = pokemon_collection->get_PokemonByName(name);

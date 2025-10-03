@@ -30,6 +30,7 @@ public:
     //Methode
     void display_PokemonList();
     vector<int> listOfId();
+    std::vector<Pokemon>& getPokemonList();
 
 };
 

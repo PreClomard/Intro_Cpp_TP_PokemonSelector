@@ -16,7 +16,7 @@ Pokemon_Vector::~Pokemon_Vector(){}
 Pokemon& Pokemon_Vector::get_PokemonById(int id) {
     for (Pokemon &p : pokemonList) {
         if (p.get_id()==id) {
-            //cout<<"valeur p.get_id() :"<<p.get_id()<<endl;
+            cout<<"valeur p.get_id() :"<<p.get_id()<<endl;
             return p;
         }
         /*else if (id==654) {
@@ -49,6 +49,8 @@ vector<int> Pokemon_Vector::listOfId() {
     return ids;
 }
 
-
+std::vector<Pokemon>& Pokemon_Vector::getPokemonList() {
+    return pokemonList;
+}
 
 

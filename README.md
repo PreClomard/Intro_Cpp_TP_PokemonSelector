@@ -30,7 +30,7 @@ de la dernière séance à être réalisé.
 
 
 
-## TP du 19 Septembre
+## TP du 26 Septembre
 
 ###  Avancé en TP
 
@@ -59,7 +59,13 @@ si et seulement si intégré dans l'équipe de pokemon
 C'est la classe fille, cet dernière contient les pokemons utilisé pour les 
 combats.
 
+### Design Pattern State
+Le design pattern state va nous permettre d'effectuer les différentes étapes du jeu, cela ce vera à travers l'évolution de la fenêtre.
+Cela commencera par game qui s'occupera de l'ensemble du système avant de lancer l'affichage de la fenêtre de Menu qui ce trouve dans MenuState. 
+Lorsque on quite le menuState on passe à l'encounter face où on aura deux possibilités, soit de rencontrer un pokemon, soit de d'affronter en arene. La partie arène n'a pas été fait mais la partie rencontre avec pokemon est en toujours en cours.
 
+
+### Diagramme de Classe
 ```mermaid
 classDiagram
 
@@ -73,7 +79,8 @@ class Pokemon {
     - double lifePoints
     - double attackPoints
     - double defensePoints
-    + Pokemon(int, string, int, double, double, double, double)
+    - string imagePath
+    + Pokemon(int, string, int, double, double, double, double, string)
     + ~Pokemon()
     + displayInfo()
     + versus(Pokemon)
@@ -84,23 +91,24 @@ class Pokemon {
     + get_attack() double
     + get_defense() double
     + get_generation() int
+    + get_imagePath() string
 }
-Pokemon *-- Pokemon_Vector
 
 class Pokemon_Vector {
-    # vector~Pokemon~ pokemonList
+    # vector<Pokemon> pokemonList
     + Pokemon_Vector()
     + ~Pokemon_Vector()
-    + get_PokemonById(int) Pokemon&
-    + get_PokemonByName(string) Pokemon&
+    + get_PokemonById(int)
+    + get_PokemonByName(string)
     + display_PokemonList()
-    + listOfId() vector~int~
+    + listOfId()
+    + getPokemonList()
 }
 
 class Pokedex {
     - static Pokedex* pinstance
     - Pokedex()
-    + static getInstance() Pokedex*
+    + static getInstance()
 }
 
 class Pokemon_PC {
@@ -128,17 +136,23 @@ Pokemon_Vector <|-- Pokemon_PC
 Pokemon_Vector <|-- Pokemon_Party
 Pokemon_PC --> Pokedex
 Pokemon_Party --> Pokemon_PC
+Pokemon_Vector *-- Pokemon : contains
 
 %% ====== GAME STATE SYSTEM ======
 
 class Game {
     - State* stateOfTheClass
     - sf::RenderWindow window
+    - Pokedex* liste_Pokedex
+    - Pokemon_PC* pokemon_collection
+    - Pokemon_Party* trainerTeam
     + Game()
     + ~Game()
     + run()
     + setState(State*)
     + setTeam()
+    + getTrainerTeam()
+    + getPokedex()
 }
 
 class State {
@@ -151,32 +165,49 @@ class State {
 }
 
 class MenuState {
-    - Pokemon_Party* trainerTeam
     + MenuState(Game*)
     + handleGameEvent(sf::Event)
     + update()
     + render(sf::RenderWindow)
-    + creationOfParty()
 }
-
 class ExplorationState {
-    - int randomEncounter
-    - int randomArena
     + ExplorationState(Game*)
     + handleGameEvent(sf::Event)
     + update()
     + render(sf::RenderWindow)
 }
+class ArenaState {
+    + ArenaState(Game*)
+    + handleGameEvent(sf::Event)
+    + update()
+    + render(sf::RenderWindow)
+}
+class GameOverState {
+    + GameOverState(Game*)
+    + handleGameEvent(sf::Event)
+    + update()
+    + render(sf::RenderWindow)
+}
+class EncounterState {
+    + EncounterState(Game*)
+    + handleGameEvent(sf::Event)
+    + update()
+    + render(sf::RenderWindow)
+}
 
-class ArenaState
-class GameOverState
+Game --> State
+MenuState --> Pokemon_Party
+ExplorationState --> Pokemon_Party
+ArenaState --> Pokemon_Party
+ArenaState --> Pokemon_PC
+EncounterState --> Pokemon_Party
+EncounterState --> Pokemon_PC
 
 State <|-- MenuState
 State <|-- ExplorationState
 State <|-- ArenaState
 State <|-- GameOverState
-Game --> State
-MenuState --> Pokemon_Party
+State <|-- EncounterState
 
 %% ====== DYNAMIC SPRITE ======
 

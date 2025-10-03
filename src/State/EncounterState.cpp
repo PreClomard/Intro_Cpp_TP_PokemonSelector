@@ -3,7 +3,8 @@
 //
 
 #include "../../inc/State/EncounterState.h"
-
+#include "../../inc/Pokemon_Classes/Pokemon_Party.h"
+#include "../../inc/Game.h"
 #include <iostream>
 
 using namespace std;
@@ -35,4 +36,17 @@ void EncounterState::update() {
 
 void EncounterState::render(sf::RenderWindow &window) {
     window.draw(background);
+
+    int x = 50;
+    trainerTeam=game->getTrainerTeam();
+    for (Pokemon& p_trainer : trainerTeam->getPokemonList()) {
+        sf::Texture texture;
+        texture.loadFromFile(p_trainer.get_imagePath());
+        sf::Sprite sprite(texture);
+        sprite.setPosition(x, 400);
+        sprite.setScale(2.f, 2.f);
+        window.draw(sprite);
+        x += 150; // espace entre les Pokémon
+    }
+
 }

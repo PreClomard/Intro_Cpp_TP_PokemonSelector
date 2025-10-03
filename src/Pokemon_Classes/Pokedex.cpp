@@ -34,8 +34,8 @@ Pokedex::Pokedex() {
             double Pv_Max=std::stod(donneesLigne[5]);
             double attack=std::stod(donneesLigne[9]);
             double defense=std::stod(donneesLigne[7]);
-
-            Pokemon pokemonTemp(id,name,generation,Pv_Max,Pv_Max,attack,defense);
+            string imagePath="../img/pokemon/" + std::to_string(id) + ".png";
+            Pokemon pokemonTemp(id,name,generation,Pv_Max,Pv_Max,attack,defense,imagePath);
             pokemonList.push_back(pokemonTemp);
         }
         cmpt++;

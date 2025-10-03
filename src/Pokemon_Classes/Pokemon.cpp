@@ -12,9 +12,9 @@ using namespace std;
 
 //Constructor
 Pokemon::Pokemon(int id, const string name,int generation, double maxLifePoints,
-        double lifePoints, double attackPoints, double defensePoints):id(id),name(name),generation(generation),
+        double lifePoints, double attackPoints, double defensePoints,string imagePath):id(id),name(name),generation(generation),
 maxLifePoints(maxLifePoints),lifePoints(lifePoints),attackPoints(attackPoints),
-defensePoints(defensePoints){}
+defensePoints(defensePoints),imagePath(imagePath){}
 
 //Destructor
 Pokemon::~Pokemon() {
@@ -35,7 +35,7 @@ void Pokemon::displayInfo() const{
     cout<<"Point de vie max: "<<maxLifePoints<<endl;
     cout<<"Attack: "<<attackPoints<<endl;
     cout<<"Defense: "<<defensePoints<<endl;
-    cout<<""<<endl;
+    cout<<"Image Path"<<endl;
 }
 
 /**
@@ -90,4 +90,7 @@ double Pokemon::get_defense() const{
 }
 int Pokemon::get_generation() const{
     return generation;
+}
+string Pokemon::get_imagePath() const {
+    return imagePath;
 }

@@ -14,14 +14,15 @@ class MenuState : public State {
 private:
     sf::Texture backgroundTexture;
     sf::Sprite background;
-    Pokemon_Party* trainerTeam;
+    sf::Text text;
+    sf::Font font;
+
 
 public:
     MenuState(Game* game);
     void handleGameEvent(sf::Event &event) override;
     void update() override;
     void render(sf::RenderWindow &window) override;
-    void creationOfParty();
 
 };
 

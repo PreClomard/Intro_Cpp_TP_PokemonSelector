@@ -13,6 +13,9 @@ class Game {
 private:
     State *stateOfTheClass;
     sf::RenderWindow window;
+    Pokedex* liste_Pokedex;
+    Pokemon_PC* pokemon_collection;
+    Pokemon_Party* trainerTeam;
 
 public:
     Game();
@@ -22,6 +25,8 @@ public:
     void run();
     void setState(State *state);
     void setTeam();
+    Pokemon_Party* getTrainerTeam();
+    Pokedex* getPokedex();
 
 };
 

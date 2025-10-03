@@ -12,6 +12,10 @@ private:
     sf::Texture backgroundTexture;
     sf::Sprite background;
 
+    Pokemon_Party* trainerTeam;
+    Pokemon_PC* pokemon_collection_Encounter;
+    Pokemon_Party* encounterTeam;
+
 public:
     EncounterState(Game* game);
     void handleGameEvent(sf::Event &event) override;

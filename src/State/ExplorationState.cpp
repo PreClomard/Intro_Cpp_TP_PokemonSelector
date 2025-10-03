@@ -5,8 +5,6 @@
 #include "../../inc/State/ExplorationState.h"
 #include "../../inc/State/EncounterState.h"
 #include "../../inc/Game.h"
-#include "../../inc/Pokemon_Classes/Pokedex.h"
-#include "../../inc/Pokemon_Classes/Pokemon_Party.h"
 #include <iostream>
 
 using namespace std;
