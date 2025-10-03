@@ -62,5 +62,7 @@ combats.
 
 
 ## Diagramme de Class UML
+![diagramme UML](img_readme/diagram_class_UML.png)
+
 
 
