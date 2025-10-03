@@ -60,9 +60,138 @@ C'est la classe fille, cet dernière contient les pokemons utilisé pour les
 combats.
 
 
+```mermaid
+classDiagram
 
-## Diagramme de Class UML
-![diagramme UML](img_readme/diagram_class_UML.png)
+%% ====== CORE POKEMON CLASSES ======
+
+class Pokemon {
+    - int id
+    - string name
+    - int generation
+    - double maxLifePoints
+    - double lifePoints
+    - double attackPoints
+    - double defensePoints
+    + Pokemon(int, string, int, double, double, double, double)
+    + ~Pokemon()
+    + displayInfo()
+    + versus(Pokemon)
+    + get_id() int
+    + get_name() string
+    + get_lifePoints() double
+    + get_maxLifePoints() double
+    + get_attack() double
+    + get_defense() double
+    + get_generation() int
+}
+Pokemon *-- Pokemon_Vector
+
+class Pokemon_Vector {
+    # vector~Pokemon~ pokemonList
+    + Pokemon_Vector()
+    + ~Pokemon_Vector()
+    + get_PokemonById(int) Pokemon&
+    + get_PokemonByName(string) Pokemon&
+    + display_PokemonList()
+    + listOfId() vector~int~
+}
+
+class Pokedex {
+    - static Pokedex* pinstance
+    - Pokedex()
+    + static getInstance() Pokedex*
+}
+
+class Pokemon_PC {
+    - Pokedex* pokedex
+    + Pokemon_PC(Pokedex*)
+    + ~Pokemon_PC()
+    + addPokemonToPCbyId(int)
+    + addPokemonToPCbyName(string)
+    + removePokemonToPCbyId(int)
+    + removePokemonToPCbyName(string)
+}
+
+class Pokemon_Party {
+    - Pokemon_PC* pokemon_collection
+    + Pokemon_Party(Pokemon_PC*)
+    + ~Pokemon_Party()
+    + addPokemonToPartyById(int)
+    + addPokemonToPartyByName(string)
+    + removePokemonToPartyById(int)
+    + removePokemonToPartyByName(string)
+}
+
+Pokemon_Vector <|-- Pokedex
+Pokemon_Vector <|-- Pokemon_PC
+Pokemon_Vector <|-- Pokemon_Party
+Pokemon_PC --> Pokedex
+Pokemon_Party --> Pokemon_PC
+
+%% ====== GAME STATE SYSTEM ======
+
+class Game {
+    - State* stateOfTheClass
+    - sf::RenderWindow window
+    + Game()
+    + ~Game()
+    + run()
+    + setState(State*)
+    + setTeam()
+}
+
+class State {
+    # Game* game
+    + ~State()
+    + set_Game(Game*)
+    + handleGameEvent(sf::Event)
+    + update()
+    + render(sf::RenderWindow)
+}
+
+class MenuState {
+    - Pokemon_Party* trainerTeam
+    + MenuState(Game*)
+    + handleGameEvent(sf::Event)
+    + update()
+    + render(sf::RenderWindow)
+    + creationOfParty()
+}
+
+class ExplorationState {
+    - int randomEncounter
+    - int randomArena
+    + ExplorationState(Game*)
+    + handleGameEvent(sf::Event)
+    + update()
+    + render(sf::RenderWindow)
+}
+
+class ArenaState
+class GameOverState
+
+State <|-- MenuState
+State <|-- ExplorationState
+State <|-- ArenaState
+State <|-- GameOverState
+Game --> State
+MenuState --> Pokemon_Party
+
+%% ====== DYNAMIC SPRITE ======
+
+class DynamicSprite {
+    - bool isWalking
+    - double speed
+    - int spriteSheetNumberOfColumn
+    - double timeBetweenFrame
+    + DynamicSprite()
+    + ~DynamicSprite()
+    + draw()
+    + setDirection()
+    - isMovingPossible()
+    - move()
+}
 
 
-
+```
